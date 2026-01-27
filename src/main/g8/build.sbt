@@ -10,10 +10,10 @@ import org.mojoz.metadata.out.DdlGenerator
 import sbt.Project.inConfig
 import sbt.Defaults.testSettings
 
-ThisBuild / scalaVersion := "2.13.16"
+ThisBuild / scalaVersion := "3.8.1"
 ThisBuild / version      := "0.1.0-SNAPSHOT"
 
-val wabaseVersion      = "8.0.0-RC15-SNAPSHOT"
+val wabaseVersion      = "8.0.0-RC33-SNAPSHOT"
 val pekkoHttpVersion   = "1.1.0"
 val comSunActivationV  = "2.0.1"
 val comSunMailV        = "2.0.1"
