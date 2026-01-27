@@ -1,28 +1,7 @@
-.tmp
-target
-
-/.idea/
-application.conf
-logback.xml
-tmp
-
-# eclipse conf file
-.eclipse
-.settings
-.classpath
-.history
-.project
-.cache
-
-# sbt
-.bsp
-
-# scalatest reports
-report/
-*-report/
-
-# MACOS file system junk
-.DS_Store
-
-# vs code
-.vscode
+.bsp/
+boot/
+lib_managed/
+project/plugins/project/
+src_managed/
+target/
+tmp/
