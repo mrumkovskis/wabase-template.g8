@@ -94,7 +94,10 @@ lazy val assemblySettings = Seq(
       MergeStrategy.discard
 
     case PathList("META-INF", "versions", "9", "OSGI-INF", "MANIFEST.MF") =>
-      MergeStrategy.last
+      MergeStrategy.discard
+
+    case PathList("META-INF", "versions", "11", "OSGI-INF", "MANIFEST.MF") =>
+      MergeStrategy.discard  // Discard duplicates; keep the first occurrence
 
     case "module-info.class" | "application.conf" | "LICENSE-2.0.txt" =>
       MergeStrategy.discard
