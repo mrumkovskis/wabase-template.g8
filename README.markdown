@@ -1,4 +1,9 @@
-A [Giter8][g8] template for projects based on wabase
+A [Giter8][g8] template for projects based on wabase.
+
+Usage
+-----
+
+sbt new https://github.com/guntiso/wabase-template.g8.git
 
 Template license
 ----------------
