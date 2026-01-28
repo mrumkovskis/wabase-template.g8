@@ -1,3 +1,5 @@
-# check if the file gets created
+> clean
+$ absent target/scala-3.8.1
+
 > assembly
 $ exists target/scala-3.8.1/wabase-seed-project-assembly-0.1.0-SNAPSHOT.jar
