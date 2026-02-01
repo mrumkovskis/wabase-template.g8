@@ -1,26 +1,10 @@
 package wabase.app
-/*TODO clean up imports*/
-import org.apache.pekko.NotUsed
-import org.apache.pekko.actor.ActorSystem
-import org.apache.pekko.http.scaladsl.Http
-import org.apache.pekko.http.scaladsl.client.RequestBuilding.{Get, Post}
-import org.apache.pekko.http.scaladsl.model.sse.ServerSentEvent
-import org.apache.pekko.http.scaladsl.model.ws.{Message, TextMessage, WebSocketRequest}
-import org.apache.pekko.http.scaladsl.model.{ContentTypes, HttpEntity, HttpRequest, HttpResponse, StatusCodes}
-import org.apache.pekko.http.scaladsl.unmarshalling.Unmarshal
-import org.apache.pekko.stream.scaladsl.{Flow, Keep, Sink, Source}
-import org.apache.pekko.util.ByteString
+
 import org.mojoz.metadata.out.DdlGenerator
-import org.tresql.{Result, RowLike}
 import org.wabase._
-import org.wabase.WabaseUnmarshallers.mapUnmarshaller
 
 import java.io.File
-import scala.concurrent.duration.DurationInt
-import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.language.reflectiveCalls
-import scala.util.Try
-import scala.util.control.NonFatal
 
 object BusinessScenariosSpecs {
   def executeStatements(statements: String*): Unit = {
