@@ -4,11 +4,13 @@ import sbtassembly.PathList
 
 import org.mojoz.metadata.ViewDef
 import org.mojoz.querease.Querease
-import scala.collection.immutable
 import org.mojoz.metadata.out.DdlGenerator
+import org.wabase.{AppQuerease, DefaultAppMdConventions}
 
 import sbt.Project.inConfig
 import sbt.Defaults.testSettings
+
+import scala.collection.immutable
 
 ThisBuild / scalaVersion := "3.8.1"
 ThisBuild / version      := "0.1.0-SNAPSHOT"
@@ -74,18 +76,17 @@ lazy val mojozSettings = Seq(
     "org.wabase.{ Dto, DtoWithId }"
   ),
   mojozShouldCompileViews := true,
-  mojozQuerease := new Querease {
-    override lazy val tableMetadata = mojozTableMetadata.value
-    override lazy val yamlMetadata = mojozRawYamlMetadata.value
-    override lazy val metadataConventions = mojozMdConventions.value
-    override lazy val typeDefs = mojozTypeDefs.value
-    override lazy val resourceLoader = mojozResourceLoader.value
-    override lazy val viewDefLoader = new org.mojoz.metadata.in.YamlViewDefLoader(
-      tableMetadata, yamlMetadata, joinsParser, metadataConventions, uninheritableExtras, typeDefs
-    ) {
-      override protected def transformRawViewDefs(raw: immutable.Seq[ViewDef]): immutable.Seq[ViewDef] = raw
-    }
-  }
+  mojozMdConventions := new DefaultAppMdConventions(mojozResourceLoader.value)(),
+  mojozQuerease := new AppQuerease {
+    override lazy val aliasToDb           = mojozDbAliasToDb.value
+    override lazy val yamlMetadata        = mojozRawYamlMetadata.value
+    override lazy val typeDefs            = mojozTypeDefs.value
+    override lazy val tableMetadata       = mojozTableMetadata.value
+    override lazy val macrosClass         = mojozTresqlMacrosClass.value.orNull
+    override lazy val resourceLoader      = mojozResourceLoader.value
+    override lazy val uninheritableExtras = mojozUninheritableExtras.value
+    override protected lazy val parserCacheSize = -1 // unlimited cache for compilation
+  },
 )
 
 lazy val assemblySettings = Seq(
