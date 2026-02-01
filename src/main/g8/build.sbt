@@ -119,6 +119,9 @@ lazy val assemblySettings = Seq(
     case PathList("jakarta", "activation", _ @ _*) =>
       MergeStrategy.first
 
+    case x if x  endsWith  "logback-test.xml"         => MergeStrategy.discard
+    case x if x  endsWith  "logback-test.example.xml" => MergeStrategy.discard
+
     case x =>
       val oldStrategy = (assembly / assemblyMergeStrategy).value
       oldStrategy(x)
