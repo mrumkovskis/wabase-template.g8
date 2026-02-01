@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         os:   [ubuntu-22.04]   # TODO macos-latest, windows-latest
-        java: [17] #, 21, 25]  # TODO
+        java: [25]
     steps:
     - name: Checkout
       uses: actions/checkout@v2

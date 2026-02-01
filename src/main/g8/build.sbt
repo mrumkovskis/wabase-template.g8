@@ -20,6 +20,14 @@ val pekkoHttpVersion   = "1.1.0"
 val comSunActivationV  = "2.0.1"
 val comSunMailV        = "2.0.1"
 
+javacOptions ++= Seq("-source", "25", "-target", "25", "-Xlint")
+initialize := {
+  val _ = initialize.value
+  val javaVersion = sys.props("java.specification.version")
+  if (javaVersion != "25")
+    sys.error("Java 25 is required for this project. Found " + javaVersion + " instead")
+}
+
 lazy val dependencies = Seq(
   "org.wabase"                  %% "wabase"               % wabaseVersion,
   "org.bouncycastle"            %  "bcprov-jdk18on"       % "1.80",
