@@ -12,7 +12,7 @@ import sbt.Defaults.testSettings
 
 import scala.collection.immutable
 
-ThisBuild / scalaVersion := "3.8.1"
+ThisBuild / scalaVersion := "3.8.1" // 2.13.18
 ThisBuild / version      := "0.1.0-SNAPSHOT"
 
 val wabaseVersion      = "8.0.0-RC33-SNAPSHOT"
