@@ -26,3 +26,6 @@ report/
 
 # vs code
 .vscode
+
+# wabase business tests debugging
+*.received
