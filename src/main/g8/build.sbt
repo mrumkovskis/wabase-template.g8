@@ -159,6 +159,7 @@ lazy val root = (project in file("."))
     mojozSchemaSqlGenerators := Seq(
       DdlGenerator.postgresql(typeDefs = mojozTypeDefs.value)
     ),
+    Compile / compile := { (Compile / copyResources).value; (Compile / compile).value }, // expose tresql props
     Compile / mainClass := Some("org.wabase.WabaseServer")
   )
 
