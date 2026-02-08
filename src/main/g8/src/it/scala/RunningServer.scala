@@ -1,9 +1,5 @@
-package wabase.app
-
-import org.apache.pekko.http.scaladsl.model.HttpMethods
-import org.wabase.{AppQuerease, DefaultAppQuerease, WabaseServer}
 import org.wabase.client.WabaseHttpClient
-import org.scalatest.matchers.should.Matchers
+import org.wabase.{AppQuerease, DefaultAppQuerease, WabaseServer}
 
 import scala.language.reflectiveCalls
 

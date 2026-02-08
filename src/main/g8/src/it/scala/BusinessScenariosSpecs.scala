@@ -1,7 +1,6 @@
-package wabase.app
-
 import org.mojoz.metadata.out.DdlGenerator
-import org.wabase._
+import org.wabase.*
+import org.wabase.ds.ConnectionPools
 
 import java.io.File
 import scala.language.reflectiveCalls

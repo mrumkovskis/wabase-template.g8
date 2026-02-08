@@ -164,20 +164,17 @@ lazy val root = (project in file("."))
     Compile / mainClass := Some("org.wabase.WabaseServer")
   )
 
-lazy val IntegrationTest = config("it") extend Test
-
 lazy val it = (project in file("src/it"))
-  .configs(IntegrationTest)
-  .settings(inConfig(IntegrationTest)(testSettings))
   .dependsOn(root % "test->test;compile->compile")
+  .settings(commonSettings: _*)
   .settings(
     publish / skip := true,
     libraryDependencies ++= (integrationTestDependencies ++ testsDependencies),
-    IntegrationTest / javaOptions := Seq("-Xmx2G"),
-    IntegrationTest / parallelExecution := false,
-    IntegrationTest / resourceDirectory := baseDirectory.value / "resources",
-    IntegrationTest / scalaSource := baseDirectory.value / "scala",
-    IntegrationTest / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-h", name.value + "-it-report"),
-    IntegrationTest / fork := true,
-    IntegrationTest / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oDS")
+    Test / javaOptions := Seq("-Xmx2G"),
+    Test / parallelExecution := false,
+    Test / resourceDirectory := baseDirectory.value / "resources",
+    Test / scalaSource := baseDirectory.value / "scala",
+    Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-h", name.value + "-it-report"),
+    Test / fork := true,
+    Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oDS")
   )
