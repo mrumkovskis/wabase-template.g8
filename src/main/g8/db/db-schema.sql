@@ -1,3 +1,15 @@
+create table cron_job_status(
+  id bigint,
+  cron_name varchar(50) not null,
+  status varchar(5) not null check (status in ('RUN', 'ERR', 'SUCC')),
+  report_time timestamp not null,
+  up_count integer default 0 not null,
+  succ_down_count integer default 0 not null,
+  err_down_count integer default 0 not null,
+  collision_count integer default 0 not null
+);
+comment on table cron_job_status is 'Automatic process status control';
+
 create table deferred_file_body_info(
   sha_256 varchar(64),
   size bigint not null,
@@ -55,7 +67,7 @@ create table user(
 
 create table user_role(
   user_id numeric(12),
-  role text
+  role varchar(30)
 );
 
 create table validation(
@@ -67,6 +79,9 @@ create table validation(
 comment on column validation.context is 'Context - view name';
 comment on column validation.expression is 'Expression - javascript logical expression';
 comment on column validation.message is 'Message - error message, if expression is false';
+
+alter table cron_job_status add constraint pk_cron_job_status primary key (id);
+alter table cron_job_status add constraint uk_cron_job_status_cron_name unique(cron_name);
 
 alter table deferred_file_body_info add constraint pk_deferred_file_body_info primary key (sha_256);
 
