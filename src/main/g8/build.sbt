@@ -15,7 +15,7 @@ import scala.collection.immutable
 ThisBuild / scalaVersion := "3.8.1" // 2.13.18
 ThisBuild / version      := "0.1.0-SNAPSHOT"
 
-val wabaseVersion      = "8.0.0-RC33-SNAPSHOT"
+val wabaseVersion      = "8.0.0-RC35-SNAPSHOT"
 val pekkoHttpVersion   = "1.1.0"
 val comSunActivationV  = "2.0.1"
 val comSunMailV        = "2.0.1"
