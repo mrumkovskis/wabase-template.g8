@@ -3,7 +3,7 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.wabase" %% "wabase" % "8.0.0-RC35-SNAPSHOT" exclude(
+  "org.wabase" %% "wabase" % "8.0.0-RC36-SNAPSHOT" exclude(
     "org.scala-lang.modules", "scala-parser-combinators_2.12"), // version conflict fix for plugin
 )
 
