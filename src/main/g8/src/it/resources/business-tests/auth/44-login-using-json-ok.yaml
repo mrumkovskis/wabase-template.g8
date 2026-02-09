@@ -1,6 +1,0 @@
-path:       /login_using_json_or_urlencoded
-method:     POST
-request:
-  name:     john
-  password: secret
-response:

@@ -174,7 +174,7 @@ lazy val it = (project in file("src/it"))
     Test / parallelExecution := false,
     Test / resourceDirectory := baseDirectory.value / "resources",
     Test / scalaSource := baseDirectory.value / "scala",
-    Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-h", name.value + "-it-report"),
+    // Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-h", name.value + "-it-report"),
     Test / fork := true,
     Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oDS")
   )

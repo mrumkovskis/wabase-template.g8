@@ -16,6 +16,8 @@ $ absent src/it/target/scala-3.8.1
 > it/test:compile
 $ exists src/it/target/scala-3.8.1/test-classes
 
+> it/test
+
 > assembly
 $ exists target/scala-3.8.1/wabase-seed-project-assembly-0.1.0-SNAPSHOT.jar
 

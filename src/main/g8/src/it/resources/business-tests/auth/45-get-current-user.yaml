@@ -1,5 +1,0 @@
-path:       /current-user
-response:
-  user_id:  1
-  name:     john
-  roles:    []
