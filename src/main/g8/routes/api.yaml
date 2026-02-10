@@ -1,0 +1,30 @@
+#on: GET /api
+#do: api
+
+
+#on: GET /metadata/(.+)
+#do: metadata \$1
+
+
+on: GET /swagger\.json
+do: swaggerJson
+swagger:
+  summary: Get swagger json
+  description: Returns swagger.json file
+  responses:
+    '200':
+      content:
+        application/json:
+          type: object
+
+
+on: GET /swagger\.yaml
+do: swaggerYaml
+swagger:
+  summary: Get swagger yaml
+  description: Returns swagger.yaml file
+  responses:
+    '200':
+      content:
+        application/yaml:
+          type: object

@@ -1,5 +1,5 @@
-on: /hello
+on: GET /hello
 do: org.wabase.WabaseServer.hello
 
-on: /test
+on: GET /test
 do: $package_name$.Example.fn

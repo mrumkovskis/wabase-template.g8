@@ -1,0 +1,73 @@
+path:     /swagger.json
+response_headers:
+  Content-Type: application/json
+response: {
+  "openapi" : "3.1.0",
+  "info" : {
+    "title" : "",
+    "description" : "",
+    "termsOfService" : "",
+    "version" : ""
+  },
+  "servers" : [ {
+    "url" : "http://127.0.0.1"
+  } ],
+  "security" : [ ],
+  "paths" : {
+    "/hello" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/swagger.json" : {
+      "get" : {
+        "summary" : "Get swagger json",
+        "description" : "Returns swagger.json file",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/swagger.yaml" : {
+      "get" : {
+        "summary" : "Get swagger yaml",
+        "description" : "Returns swagger.yaml file",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/yaml" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/test" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "components" : { }
+}
