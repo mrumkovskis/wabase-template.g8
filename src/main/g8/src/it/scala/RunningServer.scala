@@ -1,3 +1,5 @@
+package $package_name$
+
 import org.wabase.client.WabaseHttpClient
 import org.wabase.{AppQuerease, DefaultAppQuerease, WabaseServer}
 

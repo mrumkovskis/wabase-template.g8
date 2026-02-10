@@ -1,3 +1,5 @@
+package $package_name$
+
 import org.mojoz.metadata.out.DdlGenerator
 import org.tresql.*
 import org.wabase.WabaseAppConfig.DefaultCp

@@ -1,4 +1,4 @@
-package macros
+package $package_name$.macros
 
 import org.tresql.{Expr, QueryBuilder}
 

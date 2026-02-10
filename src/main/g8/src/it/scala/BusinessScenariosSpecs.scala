@@ -1,3 +1,5 @@
+package $package_name$
+
 import org.mojoz.metadata.out.DdlGenerator
 import org.wabase.*
 import org.wabase.ds.ConnectionPools

@@ -2,4 +2,4 @@ on: /hello
 do: org.wabase.WabaseServer.hello
 
 on: /test
-do: Example.fn
+do: $package_name$.Example.fn
