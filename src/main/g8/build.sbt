@@ -113,7 +113,9 @@ lazy val assemblySettings = Seq(
       MergeStrategy.discard
 
     case "reference.conf" =>
-      MergeStrategy.concat
+      CustomMergeStrategy("reverse-concat-of-reference-conf") { conflicts =>
+        MergeStrategy.concat(conflicts.reverse)
+      }
 
     case PathList("jakarta", "mail", _ @ _*) =>
       MergeStrategy.first
