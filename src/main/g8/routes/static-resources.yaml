@@ -1,0 +1,7 @@
+on: GET /
+do: getFromResource('web', '/index.html')
+
+on: GET (?<filename>/.+\.(?:css|gif|html|jpeg|jpg|js|png|svg|ttf|woff|woff2))
+do: getFromResource('web', \$1)
+swagger:
+  summary: Get static files, e.g. index.html, *.js, *.css, images

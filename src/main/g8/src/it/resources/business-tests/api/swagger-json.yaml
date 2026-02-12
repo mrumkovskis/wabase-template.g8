@@ -14,6 +14,15 @@ response: {
   } ],
   "security" : [ ],
   "paths" : {
+    "/" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
     "/hello" : {
       "get" : {
         "responses" : {
@@ -61,6 +70,25 @@ response: {
     },
     "/test" : {
       "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/{filename}" : {
+      "get" : {
+        "summary" : "Get static files, e.g. index.html, *.js, *.css, images",
+        "parameters" : [ {
+          "name" : "filename",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "pattern" : "^.+\\\\.(?:css|gif|html|jpeg|jpg|js|png|svg|ttf|woff|woff2)\$"
+          }
+        } ],
         "responses" : {
           "200" : {
             "description" : "OK"
