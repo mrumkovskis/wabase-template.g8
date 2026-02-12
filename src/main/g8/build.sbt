@@ -162,7 +162,15 @@ lazy val root = (project in file("."))
     mojozSchemaSqlGenerators := Seq(
       DdlGenerator.postgresql(typeDefs = mojozTypeDefs.value)
     ),
-    Compile / compile := { (Compile / copyResources).value; (Compile / compile).value }, // expose tresql props
+    Compile / copyResources := {
+      val webFolder = baseDirectory.value / "web"
+      val mappings  = Path.selectSubpaths(webFolder, _.isFile).map {
+        case (f, p) => (f, (Compile / classDirectory).value / (webFolder.getName + "/" + p.replace('\\\\', '/')))
+      }
+      Sync.sync(streams.value.cacheStoreFactory make "copy-web-resources")(mappings)
+      (Compile / copyResources).value ++ mappings
+    },
+    Compile / compile := { (Compile / copyResources).value; (Compile / compile).value }, // expose tresql props, web
     Compile / mainClass := Some("org.wabase.WabaseServer")
   )
 
