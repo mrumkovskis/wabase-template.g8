@@ -1,0 +1,4 @@
+on: GET /example_job_status
+do: $package_name$.ExampleJob.status
+swagger:
+  summary: Example job get status

@@ -23,6 +23,16 @@ response: {
         }
       }
     },
+    "/example_job_status" : {
+      "get" : {
+        "summary" : "Example job get status",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
     "/hello" : {
       "get" : {
         "responses" : {

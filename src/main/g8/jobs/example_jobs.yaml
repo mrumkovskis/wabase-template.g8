@@ -1,0 +1,3 @@
+#name:   example_job_1
+#job:
+#- $package_name$.ExampleJob.doJob
