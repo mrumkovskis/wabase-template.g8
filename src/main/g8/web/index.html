@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Swagger UI</title>
-    <!-- Swagger UI CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.31.0/swagger-ui.css" />
+  <meta charset="UTF-8">
+  <title>Swagger UI</title>
+  <!-- Swagger UI CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.31.0/swagger-ui.css" />
 </head>
 <body>
-    <div id="swagger-ui"></div>
-    <!-- Swagger UI JS bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.31.0/swagger-ui-bundle.js"></script>
-    <!-- Optional standalone preset for additional layouts/plugins -->
-    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.31.0/swagger-ui-standalone-preset.js"></script>
-    <script>
-        window.onload = function() {
-            const ui = SwaggerUIBundle({
-                url: "swagger.json",  // e.g., https://petstore.swagger.io/v2/swagger.json
-                dom_id: '#swagger-ui',
-                presets: [
-                    SwaggerUIBundle.presets.apis,
-                    SwaggerUIStandalonePreset
-                ],
-                layout: "StandaloneLayout"  // Optional for full-page layout
-            });
-            window.ui = ui;
-        };
-    </script>
+  <div id="swagger-ui"></div>
+  <!-- Swagger UI JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.31.0/swagger-ui-bundle.js"></script>
+  <!-- Optional standalone preset for additional layouts/plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.31.0/swagger-ui-standalone-preset.js"></script>
+  <script>
+    window.onload = function() {
+      const ui = SwaggerUIBundle({
+        url: "swagger.json",  // e.g., https://petstore.swagger.io/v2/swagger.json
+        dom_id: '#swagger-ui',
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        layout: "StandaloneLayout"  // Optional for full-page layout
+      });
+      window.ui = ui;
+    };
+  </script>
 </body>
 </html>
