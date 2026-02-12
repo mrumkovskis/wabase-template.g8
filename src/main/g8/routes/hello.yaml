@@ -1,5 +1,6 @@
 on: GET /hello
 do: org.wabase.WabaseServer.hello
 
-on: GET /test
-do: $package_name$.Example.fn
+# TODO   
+#on: GET /test
+#do: $package_name$.Example.fn

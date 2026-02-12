@@ -68,15 +68,6 @@ response: {
         }
       }
     },
-    "/test" : {
-      "get" : {
-        "responses" : {
-          "200" : {
-            "description" : "OK"
-          }
-        }
-      }
-    },
     "/{filename}" : {
       "get" : {
         "summary" : "Get static files, e.g. index.html, *.js, *.css, images",
