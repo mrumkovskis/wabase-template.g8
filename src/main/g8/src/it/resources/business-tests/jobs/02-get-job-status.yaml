@@ -1,4 +1,4 @@
 sleep:    400 ms
 retries:  5
 path:     /example_job_status
-response: Job did something
+response: Job un-did something
