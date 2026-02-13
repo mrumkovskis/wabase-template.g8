@@ -15,7 +15,7 @@ import scala.collection.immutable
 ThisBuild / scalaVersion := "3.8.1" // 2.13.18
 ThisBuild / version      := "0.1.0-SNAPSHOT"
 
-val wabaseVersion      = "8.0.0-RC36-SNAPSHOT"
+val wabaseVersion      = "8.0.0-RC37-SNAPSHOT"
 val pekkoHttpVersion   = "1.1.0"
 val comSunActivationV  = "2.0.1"
 val comSunMailV        = "2.0.1"
@@ -94,6 +94,7 @@ lazy val mojozSettings = Seq(
     override lazy val macrosClass         = mojozTresqlMacrosClass.value.orNull
     override lazy val resourceLoader      = mojozResourceLoader.value
     override lazy val uninheritableExtras = mojozUninheritableExtras.value
+    override lazy val checkInvocations    = false
     override protected lazy val parserCacheSize = -1 // unlimited cache for compilation
   },
 )
