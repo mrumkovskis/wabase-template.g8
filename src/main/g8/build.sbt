@@ -73,7 +73,7 @@ lazy val commonSettings = Seq(
     "-feature",
     "-encoding", "utf8"
   ),
-  Test / fork := true,
+  fork := true,
   Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oDS")
 )
 
