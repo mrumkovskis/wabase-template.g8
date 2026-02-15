@@ -1,5 +1,6 @@
 .tmp
 target
+app-home-example/
 
 /.idea/
 application.conf

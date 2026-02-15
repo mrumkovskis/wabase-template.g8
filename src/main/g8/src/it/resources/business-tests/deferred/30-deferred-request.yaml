@@ -1,0 +1,4 @@
+path:       /deferred-example
+response_status: 202 Accepted
+response:
+  deferred: -> deferred_id

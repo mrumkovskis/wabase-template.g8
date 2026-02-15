@@ -1,0 +1,21 @@
+on: GET /deferred-result/{deferred_id}
+do: deferredResult(\$deferred_id)
+
+
+on: GET /deferred-example
+do: doDeferred exampleSlowRespond(500) response(200, 'slow done')
+swagger:
+  responses = :
+    '202':
+      description: The request has been accepted for processing, but the processing has not been completed. The response contains a deferred identifier.
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - deferred
+            properties:
+              deferred:
+                type: string
+                description: A unique identifier for the deferred operation (e.g., base64-encoded token).
+                example: hGLDObRtjluGLjD4mrxZX2rIOaI=

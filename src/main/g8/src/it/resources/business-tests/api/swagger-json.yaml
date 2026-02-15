@@ -23,6 +23,47 @@ response: {
         }
       }
     },
+    "/deferred-example" : {
+      "get" : {
+        "responses" : {
+          "202" : {
+            "description" : "The request has been accepted for processing, but the processing has not been completed. The response contains a deferred identifier.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "deferred" : {
+                      "type" : "string",
+                      "description" : "A unique identifier for the deferred operation (e.g., base64-encoded token).",
+                      "example" : "hGLDObRtjluGLjD4mrxZX2rIOaI="
+                    }
+                  },
+                  "required" : [ "deferred" ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deferred-result/{deferred_id}" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "deferred_id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
     "/example_job_status" : {
       "get" : {
         "summary" : "Example job get status",
