@@ -74,6 +74,138 @@ response: {
         }
       }
     },
+    "/example_person" : {
+      "get" : {
+        "summary" : "List 'example_person'",
+        "description" : "",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "\$ref" : "#/components/schemas/example_person"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "503" : {
+            "description" : "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/example_person/{code}" : {
+      "get" : {
+        "summary" : "Get 'example_person' by 'code'",
+        "description" : "",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "description" : "Code",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "maxLength" : 12
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "\$ref" : "#/components/schemas/example_person"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "503" : {
+            "description" : "Service Unavailable"
+          }
+        }
+      },
+      "put" : {
+        "summary" : "Upsert 'example_person' by 'code'",
+        "description" : "",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "description" : "Code",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "maxLength" : 12
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "\$ref" : "#/components/schemas/example_person"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "\$ref" : "#/components/schemas/example_person_key_response"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "503" : {
+            "description" : "Service Unavailable"
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Delete 'example_person' by 'code'",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "description" : "Code",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "maxLength" : 12
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
     "/hello" : {
       "get" : {
         "responses" : {
@@ -139,5 +271,37 @@ response: {
       }
     }
   },
-  "components" : { }
+  "components" : {
+    "schemas" : {
+      "example_person" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Code",
+            "maxLength" : 12,
+            "readOnly" : false
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name",
+            "maxLength" : 80,
+            "readOnly" : false
+          }
+        },
+        "required" : [ "code" ]
+      },
+      "example_person_key_response" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Code",
+            "maxLength" : 12,
+            "readOnly" : false
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,7 @@
+method:   PUT
+path:     /example_person/P1
+request:
+  name:   Wario
+response: {
+  "code": "P1"
+}

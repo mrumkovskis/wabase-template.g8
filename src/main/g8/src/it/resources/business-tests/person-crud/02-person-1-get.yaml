@@ -1,0 +1,5 @@
+path:     /example_person/P1
+response: {
+  "code": "P1",
+  "name": "Mario"
+}
