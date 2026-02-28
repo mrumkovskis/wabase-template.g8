@@ -3,6 +3,7 @@ columns:
 - code  !   12
 - name      80
 - surname   80
+- wealth    example_euro_custom_type
 - email     80
 pk:
 - code

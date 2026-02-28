@@ -1,10 +1,7 @@
-type:       instant
-xsd name:   dateTime
-json name:  string
-scala name: java.time.Instant
-jdbc:
-  - TIMESTAMP
+type:       example_euro_custom_type
+xsd name:   decimal
+scala name: scala.math.BigDecimal
 yaml:
-  - instant
+- example_euro_custom_type
 sql:
-  - timestamp
+- numeric(12, 2)

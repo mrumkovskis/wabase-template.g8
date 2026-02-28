@@ -64,6 +64,7 @@ create table person(
   code varchar(12),
   name varchar(80),
   surname varchar(80),
+  wealth numeric(12, 2),
   email varchar(80)
 );
 
