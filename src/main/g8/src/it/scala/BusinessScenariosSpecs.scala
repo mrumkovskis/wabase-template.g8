@@ -32,11 +32,8 @@ class BusinessScenariosSpecs extends BusinessScenariosBaseSpecs("business-tests"
   override def scenariosAutoLogin  = false
   override def scenariosAutoLogout = false
 
-  override def checkTestCase(
-    scenario: File, testCase: File, context: Map[String, Any], map: Map[String, Any], retriesLeft: Int
-  ): Map[String, Any] = {
-    val path   = map.s("path")
-    val method = map.sd("method", "GET")
+  override def backdoorAction(requestInfo: RequestInfo, context: Map[String, Any], map: Map[String, Any]): Any = {
+    import requestInfo.{method, path}
     if (path.startsWith("/backdoor/create-sequence/")) {
       val seqName   = path.substring("/backdoor/create-sequence/".length)
       val statement = s"create sequence \$seqName;"
@@ -59,7 +56,7 @@ class BusinessScenariosSpecs extends BusinessScenariosBaseSpecs("business-tests"
       executeStatements(s"drop table \$tableName;")
       context
     } else {
-      super.checkTestCase(scenario, testCase, context, map, retriesLeft)
+      super.backdoorAction(requestInfo, context, map)
     }
   }
 }

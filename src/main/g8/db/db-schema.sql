@@ -1,3 +1,11 @@
+create table audit(
+  request_time timestamp,
+  request jsonb,
+  user jsonb,
+  state jsonb,
+  response jsonb
+);
+
 create table cron_job_status(
   id bigint,
   cron_name varchar(50) not null,
@@ -79,6 +87,8 @@ create table validation(
 comment on column validation.context is 'Context - view name';
 comment on column validation.expression is 'Expression - javascript logical expression';
 comment on column validation.message is 'Message - error message, if expression is false';
+
+create index idx_audit_request_time on audit(request_time);
 
 alter table cron_job_status add constraint pk_cron_job_status primary key (id);
 alter table cron_job_status add constraint uk_cron_job_status_cron_name unique(cron_name);

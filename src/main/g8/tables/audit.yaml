@@ -1,0 +1,9 @@
+table:   audit
+columns:
+- request_time  dateTime
+- request       json
+- user          json
+- state         json
+- response      json
+idx:
+- request_time

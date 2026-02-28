@@ -1,4 +1,4 @@
 on: /((?:create:|count:)?\\w+)(/.+)?
-do: doAction \$1
+do: audit doAction \$1
 swagger:
   paths = : {}    # skip here - derived from views

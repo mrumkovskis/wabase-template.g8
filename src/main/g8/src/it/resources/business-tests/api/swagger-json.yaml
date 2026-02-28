@@ -23,6 +23,53 @@ response: {
         }
       }
     },
+    "/audit" : {
+      "get" : {
+        "summary" : "List 'audit'",
+        "description" : "",
+        "parameters" : [ {
+          "name" : "request_time_from",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }, {
+          "name" : "request_time_to",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "\$ref" : "#/components/schemas/audit"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "503" : {
+            "description" : "Service Unavailable"
+          }
+        }
+      }
+    },
     "/deferred-example" : {
       "get" : {
         "responses" : {
@@ -273,6 +320,109 @@ response: {
   },
   "components" : {
     "schemas" : {
+      "audit" : {
+        "type" : "object",
+        "properties" : {
+          "request_time" : {
+            "type" : "string",
+            "format" : "date-time",
+            "description" : "Request time",
+            "readOnly" : false
+          },
+          "request" : {
+            "\$ref" : "#/components/schemas/audit_request",
+            "description" : "Request",
+            "readOnly" : false
+          },
+          "user" : {
+            "type" : "object",
+            "description" : "User",
+            "readOnly" : false
+          },
+          "state" : {
+            "type" : "object",
+            "description" : "State",
+            "readOnly" : false
+          },
+          "response" : {
+            "\$ref" : "#/components/schemas/audit_response",
+            "description" : "Response",
+            "readOnly" : false
+          }
+        }
+      },
+      "audit_request" : {
+        "type" : "object",
+        "properties" : {
+          "uri" : {
+            "type" : "string",
+            "description" : "Uri",
+            "readOnly" : false
+          },
+          "method" : {
+            "type" : "string",
+            "description" : "Method",
+            "readOnly" : false
+          },
+          "headers" : {
+            "type" : "array",
+            "description" : "Headers",
+            "items" : {
+              "type" : "string"
+            },
+            "readOnly" : false
+          },
+          "ct_type" : {
+            "type" : "string",
+            "description" : "Ct type",
+            "readOnly" : false
+          },
+          "content" : {
+            "type" : "string",
+            "description" : "Content",
+            "readOnly" : false
+          },
+          "protocol" : {
+            "type" : "string",
+            "description" : "Protocol",
+            "readOnly" : false
+          }
+        }
+      },
+      "audit_response" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Code",
+            "readOnly" : false
+          },
+          "headers" : {
+            "type" : "array",
+            "description" : "Headers",
+            "items" : {
+              "type" : "string"
+            },
+            "readOnly" : false
+          },
+          "ct_type" : {
+            "type" : "string",
+            "description" : "Ct type",
+            "readOnly" : false
+          },
+          "content" : {
+            "type" : "string",
+            "description" : "Content",
+            "readOnly" : false
+          },
+          "protocol" : {
+            "type" : "string",
+            "description" : "Protocol",
+            "readOnly" : false
+          }
+        }
+      },
       "example_person" : {
         "type" : "object",
         "properties" : {
