@@ -1,0 +1,8 @@
+path:     /example_person
+headers:
+  Accept: "text/csv"
+response_headers:
+  Content-Type: text/csv; charset=UTF-8
+response: |
+  Code,Name
+  P1,Wario
