@@ -1,0 +1,16 @@
+path:     file-upload-example/file.txt
+method:   POST
+headers:
+  Content-Type: text/plain
+request:  File content
+response_status: 200 OK
+response_headers:
+  Content-Type: application/json
+response: {
+  "id": -> file_id,
+  "filename": "file.txt",
+  "upload_time": -> trash,
+  "content_type": "text/plain",
+  "size": 12,
+  "sha_256": "f0ca7ef61aed3763f9bec72e14379549179c5d31cc25f23a6e62fcdc43f3374c"
+}

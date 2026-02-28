@@ -1,0 +1,8 @@
+name:     file_upload_response   # a.k.a. file_info - for swagger
+fields:
+- id            !
+- filename      ! 240
+- upload_time   !
+- content_type  ! 100
+- size          ! long
+- sha_256       ! 64

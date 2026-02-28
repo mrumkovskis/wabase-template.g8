@@ -253,6 +253,79 @@ response: {
         }
       }
     },
+    "/file-download-example/{id}/{sha256}" : {
+      "get" : {
+        "summary" : "File download",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "pattern" : "^\\\\d*\$"
+          }
+        }, {
+          "name" : "sha256",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string",
+                  "format" : "binary"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "File not found"
+          }
+        }
+      }
+    },
+    "/file-upload-example/{filename}" : {
+      "post" : {
+        "summary" : "File upload",
+        "parameters" : [ {
+          "name" : "filename",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "string",
+                "format" : "binary"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "\$ref" : "#/components/schemas/file_upload_response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/hello" : {
       "get" : {
         "responses" : {
@@ -451,6 +524,48 @@ response: {
             "readOnly" : false
           }
         }
+      },
+      "file_upload_response" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64",
+            "description" : "Id",
+            "readOnly" : false
+          },
+          "filename" : {
+            "type" : "string",
+            "description" : "Filename",
+            "maxLength" : 240,
+            "readOnly" : false
+          },
+          "upload_time" : {
+            "type" : "string",
+            "format" : "date-time",
+            "description" : "Upload time",
+            "readOnly" : false
+          },
+          "content_type" : {
+            "type" : "string",
+            "description" : "Content type",
+            "maxLength" : 100,
+            "readOnly" : false
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int64",
+            "description" : "Size",
+            "readOnly" : false
+          },
+          "sha_256" : {
+            "type" : "string",
+            "description" : "Sha 256",
+            "maxLength" : 64,
+            "readOnly" : false
+          }
+        },
+        "required" : [ "id", "filename", "upload_time", "content_type", "size", "sha_256" ]
       }
     }
   }

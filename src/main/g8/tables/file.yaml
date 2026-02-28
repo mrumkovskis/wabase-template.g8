@@ -6,6 +6,7 @@ columns:
   - content_type  ! 100
   - sha_256       ! file_body_info.sha_256
 
+
 table:   file_body_info
 columns:
   - sha_256 ! 64

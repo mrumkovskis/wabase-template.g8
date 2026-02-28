@@ -1,0 +1,32 @@
+on: POST /file-upload-example/{filename}
+do: fileUpload \$1
+swagger:
+  summary: File upload
+  requestBody:
+    required: true
+    content:
+      '*/*':
+        schema:
+          type: string
+          format: binary
+  responses = :
+    '200':
+      content:
+        application/json:
+          schema:
+            \$ref: file_upload_response
+
+
+on: GET /file-download-example/(?<id>\\d*)/(?<sha256>.*)
+do: fileDownload(\$1, \$2)
+swagger:
+  summary: File download
+  responses:
+    '200':
+      content:
+        '*/*':
+          schema:
+            type: string
+            format: binary
+    '404':
+      description: File not found
