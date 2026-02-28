@@ -1,0 +1,4 @@
+sleep:      50 ms
+retries:    5
+path:       /backdoor/server_sent_events/example_events_reader
+response:   [{"data": "event-1"}, {"data": "event-2"}]

@@ -335,6 +335,25 @@ response: {
         }
       }
     },
+    "/server-sent-events-example" : {
+      "get" : {
+        "summary" : "Subscribe to example server-sent events",
+        "description" : "This endpoint allows clients to receive real-time updates via Server-Sent Events (SSE).",
+        "responses" : {
+          "200" : {
+            "description" : "A stream of server-sent events",
+            "content" : {
+              "text/event-stream" : {
+                "schema" : {
+                  "type" : "string",
+                  "format" : "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/swagger.json" : {
       "get" : {
         "summary" : "Get swagger json",

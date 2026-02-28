@@ -1,0 +1,7 @@
+path:       /server-sent-events-example
+response_headers:
+  Content-Type: text/event-stream
+  Cache-Control: no-cache
+  X-Accel-Buffering: no
+response_status: 200 OK
+response: -> example_events_reader

@@ -1,0 +1,4 @@
+sleep:      1 ms
+retries:    1
+path:       /backdoor/server_sent_events/example_events_reader
+response:   []
