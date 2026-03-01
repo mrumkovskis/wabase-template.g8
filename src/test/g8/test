@@ -1,28 +1,28 @@
 > clean
-$ absent target/scala-3.8.1
+$ absent target/scala-3.8.2
 
 > compile
-$ exists target/scala-3.8.1/classes
-$ absent target/scala-3.8.1/test-classes
+$ exists target/scala-3.8.2/classes
+$ absent target/scala-3.8.2/test-classes
 
 > test:compile
-$ exists target/scala-3.8.1/test-classes
+$ exists target/scala-3.8.2/test-classes
 
 > test
 
 > it/clean
-$ absent src/it/target/scala-3.8.1
+$ absent src/it/target/scala-3.8.2
 
 > it/test:compile
-$ exists src/it/target/scala-3.8.1/test-classes
+$ exists src/it/target/scala-3.8.2/test-classes
 
 > it/test
 
 > assembly
-$ exists target/scala-3.8.1/wabase-seed-project-assembly-0.1.0-SNAPSHOT.jar
+$ exists target/scala-3.8.2/wabase-seed-project-assembly-0.1.0-SNAPSHOT.jar
 
 > clean
-$ absent target/scala-3.8.1
+$ absent target/scala-3.8.2
 
 > it/clean
-$ absent src/it/target/scala-3.8.1
+$ absent src/it/target/scala-3.8.2
