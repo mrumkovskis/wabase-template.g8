@@ -4,5 +4,5 @@ headers:
 response_headers:
   Content-Type: text/csv; charset=UTF-8
 response: |
-  Code,Name
-  P1,Wario
+  Code,Name,Wealth
+  P1,Wario,420.69

@@ -1,5 +1,6 @@
 path:     /example_person/P1
 response: {
   "code": "P1",
-  "name": "Wario"
+  "name": "Wario",
+  "wealth": 420.69
 }

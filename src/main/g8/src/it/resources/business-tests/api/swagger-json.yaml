@@ -123,8 +123,8 @@ response: {
     },
     "/example_person" : {
       "get" : {
-        "summary" : "List 'example_person'",
-        "description" : "",
+        "summary" : "List all example_person-s - PUT some, GET, enjoy!",
+        "description" : "Example customized description for example_person list",
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -528,6 +528,12 @@ response: {
             "type" : "string",
             "description" : "Name",
             "maxLength" : 80,
+            "readOnly" : false
+          },
+          "wealth" : {
+            "type" : "number",
+            "description" : "Wealth",
+            "example" : 420.69,
             "readOnly" : false
           }
         },

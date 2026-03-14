@@ -2,6 +2,7 @@ method:   PUT
 path:     /example_person/P1
 request:
   name:   Wario
+  wealth: 420.69
 response: {
   "code": "P1"
 }

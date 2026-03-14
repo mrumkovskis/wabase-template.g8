@@ -4,3 +4,11 @@ api:    public get upsert list delete
 fields:
 - code
 - name
+- wealth : Wealth
+  swagger:
+    example: 420.69
+swagger:
+  /example_person:
+    get:
+      summary:      List all example_person-s - PUT some, GET, enjoy!
+      description:  Example customized description for example_person list
