@@ -5,6 +5,7 @@ import org.wabase.*
 import org.wabase.ds.ConnectionPools
 
 import java.io.File
+import scala.concurrent.Future
 import scala.language.reflectiveCalls
 
 object BusinessScenariosSpecs {
@@ -54,6 +55,16 @@ class BusinessScenariosSpecs extends BusinessScenariosBaseSpecs("business-tests"
     } else if (path.startsWith("/backdoor/drop-table/")) {
       val tableName = path.substring("/backdoor/drop-table/".length)
       executeStatements(s"drop table \$tableName;")
+      context
+    } else if (path.startsWith("/backdoor/generate-example-server-events/")) {
+      val topic = path.substring("/backdoor/generate-example-server-events/".length)
+      implicit val ec: scala.concurrent.ExecutionContext = scala.concurrent.ExecutionContext.global
+      Future {
+        Thread.sleep(150)
+        ServerNotifications.publishEvent(topic, "event-1")
+        Thread.sleep(150)
+        ServerNotifications.publishEvent(topic, "event-2")
+      }
       context
     } else {
       super.backdoorAction(requestInfo, context, map)

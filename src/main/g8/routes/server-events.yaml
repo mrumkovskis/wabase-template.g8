@@ -1,5 +1,5 @@
 on: GET /server-sent-events-example
-do: $package_name$.ExampleServerEvents.subscribeToExampleEvents 'example-topic'
+do: subscribeToServerSentEvents 'example-topic'
 swagger:
   summary: Subscribe to example server-sent events
   description: This endpoint allows clients to receive real-time updates via Server-Sent Events (SSE).
