@@ -1,0 +1,28 @@
+name:   template_rendering_example
+api:    public get
+get:
+- template = '<!DOCTYPE html><html><head><title>{{title}}</title></head><body><h1>{{header}}</h1><p>{{body}}</p></body></html>'
+- template { :template || '|' || :filename }  # XXX concating filename to choose renderer # TODO Content-Type   
+swagger:
+  parameters:
+    - name: title
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: header
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: body
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: filename
+      in: query
+      required: true
+      description: To reder PDF, filename should end with '.pdf'
+      schema:
+        type: string

@@ -390,6 +390,59 @@ response: {
         }
       }
     },
+    "/template_rendering_example" : {
+      "get" : {
+        "summary" : "Get 'template_rendering_example'",
+        "description" : "",
+        "parameters" : [ {
+          "name" : "title",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "header",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "body",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "filename",
+          "in" : "query",
+          "description" : "To reder PDF, filename should end with '.pdf'",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "503" : {
+            "description" : "Service Unavailable"
+          }
+        }
+      }
+    },
     "/{filename}" : {
       "get" : {
         "summary" : "Get static files, e.g. index.html, *.js, *.css, images",
@@ -596,6 +649,10 @@ response: {
           }
         },
         "required" : [ "id", "filename", "upload_time", "content_type", "size", "sha_256" ]
+      },
+      "template_rendering_example" : {
+        "type" : "object",
+        "properties" : { }
       }
     }
   }
