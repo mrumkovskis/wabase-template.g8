@@ -33,15 +33,15 @@ lazy val dependencies = Seq(
   "org.bouncycastle"            %  "bcpkix-jdk18on"         % "1.83",
   "com.github.jwt-scala"        %% "jwt-core"               % "11.0.3",
   "com.github.jwt-scala"        %% "jwt-json-common"        % "11.0.3",
-  "io.github.samueleresca"      %% "pekko-quartz-scheduler"% "1.3.0-pekko-1.1.x",
-  "org.hsqldb"                  %  "hsqldb"               % "2.7.4",
+  "io.github.samueleresca"      %% "pekko-quartz-scheduler" % "1.3.0-pekko-1.1.x",
+  "org.hsqldb"                  %  "hsqldb"                 % "2.7.4",
 
   "io.swagger.core.v3"          %  "swagger-jaxrs2-jakarta" % "2.2.45" exclude("jakarta.activation", "jakarta.activation-api"),
 
-  "org.xhtmlrenderer"           %  "flying-saucer-pdf"     % "10.1.0",
+  "org.xhtmlrenderer"           %  "flying-saucer-pdf"      % "10.1.0",
 
   // Keep simple-java-mail: exclude other mail/activation
-  "org.simplejavamail"          %  "simple-java-mail"      % "8.12.6"
+  "org.simplejavamail"          %  "simple-java-mail"       % "8.12.6"
     exclude("org.eclipse.angus","angus-mail")
     exclude("org.eclipse.angus","angus-activation")
     exclude("jakarta.mail","jakarta.mail-api")
@@ -49,12 +49,12 @@ lazy val dependencies = Seq(
     exclude("com.sun.activation","jakarta.activation"),
 
   // for custom data validations
-  "org.graalvm.js"              %  "js"                    % "25.0.2",
-  "org.graalvm.js"              %  "js-scriptengine"       % "25.0.2",
+  "org.graalvm.js"              %  "js"                     % "25.0.2",
+  "org.graalvm.js"              %  "js-scriptengine"        % "25.0.2",
 
   // activation + mail implementation --> keep (com.sun.*)
-  "com.sun.activation"          %  "jakarta.activation"    % comSunActivationV,
-  "com.sun.mail"                %  "jakarta.mail"          % comSunMailV
+  "com.sun.activation"          %  "jakarta.activation"     % comSunActivationV,
+  "com.sun.mail"                %  "jakarta.mail"           % comSunMailV
 )
 
 lazy val testsDependencies = Seq(
