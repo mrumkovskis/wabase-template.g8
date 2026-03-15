@@ -39,7 +39,7 @@ lazy val dependencies = Seq(
 
   "io.swagger.core.v3"          %  "swagger-jaxrs2-jakarta" % "2.2.45" exclude("jakarta.activation", "jakarta.activation-api"),
 
-  "org.xhtmlrenderer"           %  "flying-saucer-pdf"     % "9.11.2",
+  "org.xhtmlrenderer"           %  "flying-saucer-pdf"     % "10.1.0",
 
   // Keep simple-java-mail: exclude other mail/activation
   "org.simplejavamail"          %  "simple-java-mail"      % "8.12.6"
