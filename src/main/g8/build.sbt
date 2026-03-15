@@ -28,9 +28,9 @@ initialize := {
 }
 
 lazy val dependencies = Seq(
-  "org.wabase"                  %% "wabase"               % wabaseVersion,
-  "org.bouncycastle"            %  "bcprov-jdk18on"       % "1.80",
-  "org.bouncycastle"            %  "bcpkix-jdk18on"       % "1.80",
+  "org.wabase"                  %% "wabase"                 % wabaseVersion,
+  "org.bouncycastle"            %  "bcprov-jdk18on"         % "1.83",
+  "org.bouncycastle"            %  "bcpkix-jdk18on"         % "1.83",
   "com.github.jwt-scala"        %% "jwt-core"             % "10.0.4",
   "com.github.jwt-scala"        %% "jwt-json-common"      % "10.0.4",
   "io.github.samueleresca"      %% "pekko-quartz-scheduler"% "1.3.0-pekko-1.1.x",
