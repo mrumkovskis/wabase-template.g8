@@ -443,6 +443,100 @@ response: {
         }
       }
     },
+    "/validation" : {
+      "get" : {
+        "summary" : "List 'validation'",
+        "description" : "",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "\$ref" : "#/components/schemas/validation"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "503" : {
+            "description" : "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/validation/{code}" : {
+      "put" : {
+        "summary" : "Upsert 'validation' by 'code'",
+        "description" : "",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "description" : "Code",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "maxLength" : 30
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "\$ref" : "#/components/schemas/validation"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "\$ref" : "#/components/schemas/validation_key_response"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "503" : {
+            "description" : "Service Unavailable"
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Delete 'validation' by 'code'",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "description" : "Code",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "maxLength" : 30
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        }
+      }
+    },
     "/{filename}" : {
       "get" : {
         "summary" : "Get static files, e.g. index.html, *.js, *.css, images",
@@ -653,6 +747,47 @@ response: {
       "template_rendering_example" : {
         "type" : "object",
         "properties" : { }
+      },
+      "validation" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Code",
+            "maxLength" : 30,
+            "readOnly" : false
+          },
+          "context" : {
+            "type" : "string",
+            "description" : "view name",
+            "maxLength" : 100,
+            "readOnly" : false
+          },
+          "expression" : {
+            "type" : "string",
+            "description" : "javascript logical expression",
+            "maxLength" : 500,
+            "readOnly" : false
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "error message, if expression evaluates to false",
+            "maxLength" : 500,
+            "readOnly" : false
+          }
+        },
+        "required" : [ "code", "context", "expression", "message" ]
+      },
+      "validation_key_response" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Code",
+            "maxLength" : 30,
+            "readOnly" : false
+          }
+        }
       }
     }
   }

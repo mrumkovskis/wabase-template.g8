@@ -1,0 +1,10 @@
+name:   validation
+table:  validation
+api:    public upsert list delete
+fields:
+- code
+- context
+- expression
+- message
+order:
+- code

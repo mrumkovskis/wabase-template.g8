@@ -1,0 +1,8 @@
+path:       /validation/person-name-lt-30
+method:     PUT
+request:
+  context:     example_person
+  expression:  name.length <= 30
+  message:     "'In this example, name should be no longer than 30 characters, but is ' + name.length + ' characters long.'"
+response:
+  code: person-name-lt-30

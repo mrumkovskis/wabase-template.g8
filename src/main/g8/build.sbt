@@ -48,8 +48,9 @@ lazy val dependencies = Seq(
     exclude("jakarta.activation","jakarta.activation-api")
     exclude("com.sun.activation","jakarta.activation"),
 
-  "org.graalvm.js"              %  "js"                    % "22.3.5",
-  "org.graalvm.js"              %  "js-scriptengine"       % "22.3.5",
+  // for custom data validations
+  "org.graalvm.js"              %  "js"                    % "25.0.2",
+  "org.graalvm.js"              %  "js-scriptengine"       % "25.0.2",
 
   // activation + mail implementation --> keep (com.sun.*)
   "com.sun.activation"          %  "jakarta.activation"    % comSunActivationV,

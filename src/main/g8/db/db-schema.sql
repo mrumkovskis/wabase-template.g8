@@ -82,14 +82,14 @@ create table user_role(
 );
 
 create table validation(
-  id bigint,
+  code varchar(30),
   context varchar(100) not null,
   expression varchar(500) not null,
   message varchar(500) not null
 );
 comment on column validation.context is 'Context - view name';
 comment on column validation.expression is 'Expression - javascript logical expression';
-comment on column validation.message is 'Message - error message, if expression is false';
+comment on column validation.message is 'Message - error message, if expression evaluates to false';
 
 create index idx_audit_request_time on audit(request_time);
 
@@ -114,7 +114,7 @@ alter table user add constraint pk_user primary key (id);
 
 alter table user_role add constraint pk_user_role primary key (user_id, role);
 
-alter table validation add constraint pk_validation primary key (id);
+alter table validation add constraint pk_validation primary key (code);
 
 alter table deferred_file_info add constraint fk_deferred_file_info_sha_256 foreign key (sha_256) references deferred_file_body_info(sha_256);
 alter table file_info add constraint fk_file_info_sha_256 foreign key (sha_256) references file_body_info(sha_256);

@@ -1,7 +1,7 @@
-table:   validation
-comment: Configurable data validation with error message
+table:    validation
+comment:  Custom data validation scripts and corresponding error messages
 columns:
-- id
+- code                    30
 - context              ! 100 : Context - view name
 - expression           ! 500 : Expression - javascript logical expression
-- message              ! 500 : Message - error message, if expression is false
+- message              ! 500 : Message - error message, if expression evaluates to false
