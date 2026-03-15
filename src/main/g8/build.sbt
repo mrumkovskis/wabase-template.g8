@@ -37,8 +37,7 @@ lazy val dependencies = Seq(
   "io.github.samueleresca"      %% "pekko-quartz-scheduler"% "1.3.0-pekko-1.1.x",
   "org.hsqldb"                  %  "hsqldb"               % "2.7.4",
 
-  // swagger: exclude alternate jakarta activation if it is pulled
-  "io.swagger.core.v3"          %  "swagger-jaxrs2-jakarta" % "2.2.34" exclude("jakarta.activation","jakarta.activation-api"),
+  "io.swagger.core.v3"          %  "swagger-jaxrs2-jakarta" % "2.2.45" exclude("jakarta.activation", "jakarta.activation-api"),
 
   "org.xhtmlrenderer"           %  "flying-saucer-pdf"     % "9.11.2",
 
