@@ -17,7 +17,7 @@ ThisBuild / version      := "0.1.0-SNAPSHOT"
 
 val wabaseVersion      = "8.0.0-RC43-SNAPSHOT"
 val comSunActivationV  = "2.0.1"
-val comSunMailV        = "2.0.1"
+val comSunMailV        = "2.0.2"
 
 javacOptions ++= Seq("-source", "25", "-target", "25", "-Xlint")
 initialize := {
