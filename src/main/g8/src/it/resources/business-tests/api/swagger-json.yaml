@@ -421,6 +421,11 @@ response: {
             "description" : "Request time",
             "readOnly" : false
           },
+          "request_method" : {
+            "type" : "string",
+            "description" : "Customized audit column example",
+            "readOnly" : false
+          },
           "request" : {
             "\$ref" : "#/components/schemas/audit_request",
             "description" : "Request",

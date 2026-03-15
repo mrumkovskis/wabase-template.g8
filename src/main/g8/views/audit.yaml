@@ -3,6 +3,7 @@ table:    audit
 api:      public list
 fields:
 - request_time
+- request_method          : Customized audit column example
 - request:
   fields:
   - uri

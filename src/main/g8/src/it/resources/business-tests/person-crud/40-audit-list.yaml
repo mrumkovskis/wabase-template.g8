@@ -4,6 +4,7 @@ path:     /audit?request_time_from={{person_crud_time_from}}&request_time_to={{p
 response: [
   {
     "request_time": -> trash,
+    "request_method": "PUT",
     "request": {
       "uri": "http://localhost:8082/example_person/P1",
       "method": "PUT",
@@ -31,6 +32,7 @@ response: [
   },
   {
     "request_time": -> trash,
+    "request_method": "GET",
     "request": {
       "uri": "http://localhost:8082/example_person/P1",
       "method": "GET",
@@ -56,6 +58,7 @@ response: [
   },
   {
     "request_time": -> trash,
+    "request_method": "GET",
     "request": {
       "uri": "http://localhost:8082/example_person",
       "method": "GET",
@@ -81,6 +84,7 @@ response: [
   },
   {
     "request_time": -> trash,
+    "request_method": "PUT",
     "request": {
       "uri": "http://localhost:8082/example_person/P1",
       "method": "PUT",
@@ -108,6 +112,7 @@ response: [
   },
   {
     "request_time": -> trash,
+    "request_method": "GET",
     "request": {
       "uri": "http://localhost:8082/example_person/P1",
       "method": "GET",
@@ -133,6 +138,7 @@ response: [
   },
   {
     "request_time": -> trash,
+    "request_method": "GET",
     "request": {
       "uri": "http://localhost:8082/example_person",
       "method": "GET",
@@ -158,6 +164,7 @@ response: [
   },
   {
     "request_time": -> trash,
+    "request_method": "GET",
     "request": {
       "uri": "http://localhost:8082/example_person",
       "method": "GET",
@@ -184,6 +191,7 @@ response: [
   },
   {
     "request_time": -> trash,
+    "request_method": "DELETE",
     "request": {
       "uri": "http://localhost:8082/example_person/P1",
       "method": "DELETE",
@@ -209,6 +217,7 @@ response: [
   },
   {
     "request_time": -> trash,
+    "request_method": "GET",
     "request": {
       "uri": "http://localhost:8082/example_person/P1",
       "method": "GET",
@@ -234,6 +243,7 @@ response: [
   },
   {
     "request_time": -> trash,
+    "request_method": "GET",
     "request": {
       "uri": "http://localhost:8082/example_person",
       "method": "GET",

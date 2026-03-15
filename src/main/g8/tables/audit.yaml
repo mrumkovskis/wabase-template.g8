@@ -1,6 +1,7 @@
 table:   audit
 columns:
 - request_time  dateTime
+- request_method          : Customized audit column example
 - request       json
 - user          json
 - state         json

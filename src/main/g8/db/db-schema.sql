@@ -1,10 +1,12 @@
 create table audit(
   request_time timestamp,
+  request_method text,
   request jsonb,
   user jsonb,
   state jsonb,
   response jsonb
 );
+comment on column audit.request_method is 'Customized audit column example';
 
 create table cron_job_status(
   id bigint,
