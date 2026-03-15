@@ -2,6 +2,8 @@
 
 This is a $name$ project generated from `wabase-template.g8`.
 
+Run `sbt ~reStart`, then browse http://localhost:8082 to explore and try API.
+
 ## To develop
 ``` bash
 sbt ~reStart
