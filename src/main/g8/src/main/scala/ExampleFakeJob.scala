@@ -3,7 +3,7 @@ package $package_name$
 import java.util.concurrent.atomic.AtomicReference
 import scala.concurrent.{ExecutionContext, Future}
 
-object ExampleJob {
+object ExampleFakeJob {
   private val jobStatus = new AtomicReference[String]("Job not called")
   private val Did   = "Job did something"
   private val UnDid = "Job un-did something"
