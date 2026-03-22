@@ -744,10 +744,6 @@ response: {
         },
         "required" : [ "id", "filename", "upload_time", "content_type", "size", "sha_256" ]
       },
-      "template_rendering_example" : {
-        "type" : "object",
-        "properties" : { }
-      },
       "validation" : {
         "type" : "object",
         "properties" : {
