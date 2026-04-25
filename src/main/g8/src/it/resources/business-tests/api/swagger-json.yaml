@@ -52,7 +52,7 @@ response: {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "\$ref" : "#/components/schemas/audit"
+                    "$ref" : "#/components/schemas/audit"
                   }
                 }
               }
@@ -133,7 +133,7 @@ response: {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "\$ref" : "#/components/schemas/example_person"
+                    "$ref" : "#/components/schemas/example_person"
                   }
                 }
               }
@@ -171,7 +171,7 @@ response: {
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "\$ref" : "#/components/schemas/example_person"
+                  "$ref" : "#/components/schemas/example_person"
                 }
               }
             }
@@ -207,7 +207,7 @@ response: {
           "content" : {
             "application/json" : {
               "schema" : {
-                "\$ref" : "#/components/schemas/example_person"
+                "$ref" : "#/components/schemas/example_person"
               }
             }
           }
@@ -218,7 +218,7 @@ response: {
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "\$ref" : "#/components/schemas/example_person_key_response"
+                  "$ref" : "#/components/schemas/example_person_key_response"
                 }
               }
             }
@@ -262,7 +262,7 @@ response: {
           "required" : true,
           "schema" : {
             "type" : "string",
-            "pattern" : "^\\\\d*\$"
+            "pattern" : "^\\d*$"
           }
         }, {
           "name" : "sha256",
@@ -318,7 +318,7 @@ response: {
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "\$ref" : "#/components/schemas/file_upload_response"
+                  "$ref" : "#/components/schemas/file_upload_response"
                 }
               }
             }
@@ -443,6 +443,29 @@ response: {
         }
       }
     },
+    "/test_invocation" : {
+      "get" : {
+        "summary" : "Get 'test_invocation'",
+        "description" : "",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "503" : {
+            "description" : "Service Unavailable"
+          }
+        }
+      }
+    },
     "/validation" : {
       "get" : {
         "summary" : "List 'validation'",
@@ -455,7 +478,7 @@ response: {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "\$ref" : "#/components/schemas/validation"
+                    "$ref" : "#/components/schemas/validation"
                   }
                 }
               }
@@ -491,7 +514,7 @@ response: {
           "content" : {
             "application/json" : {
               "schema" : {
-                "\$ref" : "#/components/schemas/validation"
+                "$ref" : "#/components/schemas/validation"
               }
             }
           }
@@ -502,7 +525,7 @@ response: {
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "\$ref" : "#/components/schemas/validation_key_response"
+                  "$ref" : "#/components/schemas/validation_key_response"
                 }
               }
             }
@@ -546,7 +569,7 @@ response: {
           "required" : true,
           "schema" : {
             "type" : "string",
-            "pattern" : "^.+\\\\.(?:css|gif|html|jpeg|jpg|js|png|svg|ttf|woff|woff2)\$"
+            "pattern" : "^.+\\.(?:css|gif|html|jpeg|jpg|js|png|svg|ttf|woff|woff2)$"
           }
         } ],
         "responses" : {
@@ -574,7 +597,7 @@ response: {
             "readOnly" : false
           },
           "request" : {
-            "\$ref" : "#/components/schemas/audit_request",
+            "$ref" : "#/components/schemas/audit_request",
             "description" : "Request",
             "readOnly" : false
           },
@@ -589,7 +612,7 @@ response: {
             "readOnly" : false
           },
           "response" : {
-            "\$ref" : "#/components/schemas/audit_response",
+            "$ref" : "#/components/schemas/audit_response",
             "description" : "Response",
             "readOnly" : false
           }

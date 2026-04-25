@@ -1,4 +1,4 @@
 name: file_cleanup
 explicit db: true     # do not reserve db connection for all the action execution time!
 job:
-  - doFileCleanup
+  - org.wabase.FileCleanup.doCleanup

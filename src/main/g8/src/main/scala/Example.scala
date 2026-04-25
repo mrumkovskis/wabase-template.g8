@@ -11,6 +11,10 @@ object Example extends Loggable {
     tresql"""{demo(now())}"""
   }
 
+  def invocation(implicit res: Resources) = {
+    tresql"""{demo(now())}""".unique[java.sql.Timestamp]
+  }
+
   def createHsqldbObjectsStatements = {
     val qe = DefaultAppQuerease
     Seq(
