@@ -4,3 +4,6 @@ do: org.wabase.WabaseServer.hello
 # TODO   
 #on: GET /test
 #do: $package_name$.Example.fn
+
+on: GET /(test_invocation)
+do: doAction \$1
