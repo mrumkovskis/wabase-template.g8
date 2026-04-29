@@ -6,6 +6,7 @@ import org.mojoz.metadata.ViewDef
 import org.mojoz.querease.Querease
 import org.mojoz.metadata.out.DdlGenerator
 import org.wabase.{AppQuerease, DefaultAppMdConventions}
+import org.wabase.compiling.WabaseViewCompiler
 
 import sbt.Project.inConfig
 import sbt.Defaults.testSettings
@@ -15,7 +16,7 @@ import scala.collection.immutable
 ThisBuild / scalaVersion := "3.8.2" // 2.13.18
 ThisBuild / version      := "0.1.0-SNAPSHOT"
 
-val wabaseVersion      = "8.0.0-RC46-SNAPSHOT"
+val wabaseVersion      = "8.0.0-RC47-SNAPSHOT"
 val comSunActivationV  = "2.0.1"
 val comSunMailV        = "2.0.2"
 
@@ -85,7 +86,7 @@ lazy val mojozSettings = Seq(
   ),
   mojozShouldCompileViews := true,
   mojozMdConventions := new DefaultAppMdConventions(mojozResourceLoader.value)(),
-  mojozQuerease := new AppQuerease {
+  mojozQuerease := new AppQuerease with WabaseViewCompiler {
     override lazy val aliasToDb           = mojozDbAliasToDb.value
     override lazy val yamlMetadata        = mojozRawYamlMetadata.value
     override lazy val typeDefs            = mojozTypeDefs.value
