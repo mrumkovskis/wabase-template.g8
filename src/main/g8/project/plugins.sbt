@@ -3,11 +3,11 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.wabase" %% "wabase" % "8.0.0-RC46-SNAPSHOT" exclude(
+  "org.wabase" %% "wabase" % "8.0.0-RC47-SNAPSHOT" exclude(
     "org.scala-lang.modules", "scala-parser-combinators_2.12"), // version conflict fix for plugin
 )
 
-addSbtPlugin(("org.mojoz"    % "sbt-mojoz"     % "6.0.1").exclude (
+addSbtPlugin(("org.mojoz"    % "sbt-mojoz"     % "7.0.0-SNAPSHOT").exclude (
   "org.mojoz", "querease_2.12",
 ))
 addSbtPlugin("com.eed3si9n" % "sbt-assembly"  % "2.1.1")
