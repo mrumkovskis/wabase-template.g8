@@ -6,4 +6,5 @@ fields:
 name: test_invocation
 api: public get
 get:
-  - as any wabase_seed_project.Example.invocation
+  - demo(1)   # test macro compilation
+  - as any sample_invocation

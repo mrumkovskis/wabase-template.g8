@@ -1,3 +1,4 @@
+import com.typesafe.config.ConfigFactory
 import sbtassembly.AssemblyPlugin.autoImport.assembly
 import sbtassembly.MergeStrategy
 import sbtassembly.PathList
@@ -86,16 +87,19 @@ lazy val mojozSettings = Seq(
   ),
   mojozShouldCompileViews := true,
   mojozMdConventions := new DefaultAppMdConventions(mojozResourceLoader.value)(),
-  mojozQuerease := new AppQuerease with WabaseViewCompiler {
-    override lazy val aliasToDb           = mojozDbAliasToDb.value
-    override lazy val yamlMetadata        = mojozRawYamlMetadata.value
-    override lazy val typeDefs            = mojozTypeDefs.value
-    override lazy val tableMetadata       = mojozTableMetadata.value
-    override lazy val macrosClass         = mojozTresqlMacrosClass.value.orNull
-    override lazy val resourceLoader      = mojozResourceLoader.value
-    override lazy val uninheritableExtras = mojozUninheritableExtras.value
-    override lazy val checkInvocations    = false
-    override protected lazy val parserCacheSize = -1 // unlimited cache for compilation
+  mojozQuerease := {
+    val _ = (MojozMacroCompile / compile).value
+    new AppQuerease with WabaseViewCompiler {
+      override lazy val aliasToDb             = mojozDbAliasToDb.value
+      override lazy val yamlMetadata          = mojozRawYamlMetadata.value
+      override lazy val typeDefs              = mojozTypeDefs.value
+      override lazy val tableMetadata         = mojozTableMetadata.value
+      override lazy val resourcesClassLoader  = org.mojoz.MojozPlugin.getMojozResourcesClassLoader((Compile / resourceDirectories).value ++ Seq((Compile / classDirectory).value))
+      override lazy val resourceLoader        = mojozResourceLoader.value
+      override lazy val uninheritableExtras   = mojozUninheritableExtras.value
+      override lazy val checkInvocations      = false
+      override protected lazy val parserCacheSize = -1 // unlimited cache for compilation
+    }
   },
 )
 
@@ -134,6 +138,7 @@ lazy val assemblySettings = Seq(
 
 lazy val root = (project in file("."))
   .enablePlugins(MojozPlugin, MojozGenerateSchemaPlugin)
+  .configs(MojozMacroCompile)
   .settings(
     name := "$name$",
     libraryDependencies ++= dependencies ++ testsDependencies,
