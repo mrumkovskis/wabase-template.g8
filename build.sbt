@@ -8,5 +8,10 @@ lazy val root = (project in file("."))
     Test / Keys.test := {
       val _ = (Test / g8Test).toTask("").value
     },
-    scriptedLaunchOpts ++= List("-Xms1024m", "-Xmx1024m", "-XX:ReservedCodeCacheSize=128m", "-Xss2m", "-Dfile.encoding=UTF-8"),
+    scriptedLaunchOpts ++= List(
+      "-Xms1024m", "-Xmx1024m", "-XX:ReservedCodeCacheSize=128m", "-Xss2m", "-Dfile.encoding=UTF-8",
+      "-DHOST=http://localhost:8082", "-DPORT=8082", "-DAPP_HOME=./app-home-example",
+      "-DMAIN_DB_URL=jdbc:hsqldb:mem:mymemdb", "-DMAIN_DB_USER=SA", "-DMAIN_DB_PWD=",
+      "-DAUDIT_DB_URL=jdbc:hsqldb:mem:mymemdb", "-DAUDIT_DB_USER=SA", "-DAUDIT_DB_PWD=",
+    ),
   )

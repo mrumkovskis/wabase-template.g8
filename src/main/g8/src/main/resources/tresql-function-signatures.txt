@@ -1,8 +1,5 @@
 include /querease-function-signatures.txt
 
-//macro functions
-demo(e::any)::any
-
 any(subquery::any)::any // TODO signature
 all(subquery::any)::any // TODO signature
 array(arr::'any*')::any

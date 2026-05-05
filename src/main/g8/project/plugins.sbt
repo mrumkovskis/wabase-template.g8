@@ -7,7 +7,7 @@ libraryDependencies ++= Seq(
     "org.scala-lang.modules", "scala-parser-combinators_2.12"), // version conflict fix for plugin
 )
 
-addSbtPlugin(("org.mojoz"    % "sbt-mojoz"     % "7.0.0-SNAPSHOT").exclude (
+addSbtPlugin(("org.mojoz"    % "sbt-mojoz"     % "7.0.0-RC1-SNAPSHOT").exclude (
   "org.mojoz", "querease_2.12",
 ))
 addSbtPlugin("com.eed3si9n" % "sbt-assembly"  % "2.1.1")
