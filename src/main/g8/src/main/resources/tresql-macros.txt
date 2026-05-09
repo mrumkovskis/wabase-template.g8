@@ -1,3 +1,4 @@
-include /querease-macros.txt
+include querease-macros.txt
 
 add(a,b) = a + b
+null_table(x) = null

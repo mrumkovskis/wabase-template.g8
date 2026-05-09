@@ -7,4 +7,6 @@ name: test_invocation
 api: public get
 get:
   - demo(1)   # test macro compilation
-  - as any sample_invocation
+  - x = []null_table('x'){'macro invoked'}   #test parser macro in compilation
+  - y = as any sample_invocation
+  - as any this
