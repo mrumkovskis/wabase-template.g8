@@ -1,4 +1,4 @@
-include /querease-function-signatures.txt
+include querease-function-signatures.txt
 
 any(subquery::any)::any // TODO signature
 all(subquery::any)::any // TODO signature
