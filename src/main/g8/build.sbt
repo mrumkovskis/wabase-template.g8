@@ -88,18 +88,19 @@ lazy val mojozSettings = Seq(
   mojozShouldCompileViews := true,
   mojozMdConventions := new DefaultAppMdConventions(org.mojoz.MojozTableMetadataPlugin.mojozResourceLoader((Compile / resourceDirectories).value))(),
   mojozQuerease := {
-    val _ = (MojozMacroCompile / compile).value
+    val _ = (MojozMacroCompile / mojozMacroCompile).value
     new AppQuerease with WabaseViewCompiler {
       override lazy val aliasToDb             = mojozDbAliasToDb.value
       override lazy val yamlMetadata          = mojozRawYamlMetadata.value
       override lazy val typeDefs              = mojozTypeDefs.value
       override lazy val tableMetadata         = mojozTableMetadata.value
-      override lazy val resourceClassLoader   = org.mojoz.MojozPlugin.getMojozResourceClassLoader((Compile / resourceDirectories).value ++ Seq((Compile / classDirectory).value))
+      override lazy val resourceClassLoader   = org.mojoz.MojozPlugin.getMojozResourceClassLoader((Compile / resourceDirectories).value ++ Seq((MojozMacroCompile / sbtClassDirectory).value))
       override lazy val uninheritableExtras   = mojozUninheritableExtras.value
       override lazy val checkInvocations      = false
       override protected lazy val parserCacheSize = -1 // unlimited cache for compilation
     }
   },
+//  mojozShowFailedViewQuery := true,
 )
 
 lazy val assemblySettings = Seq(
