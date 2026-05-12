@@ -7,5 +7,5 @@ import org.tresql.ast.{Exp, StringConst, Ident}
 object Macros extends org.wabase.Macros {
 
   def demo(b: QueryBuilder, expr: Expr): Expr = expr
-  def dynamic_table(p: QueryParsers, exp: StringConst): Exp = Ident(exp.value.split("\\\\.").toList)
+  def table(p: QueryParsers, exp: StringConst): Exp = Ident(exp.value.split("\\\\.").toList)
 }
