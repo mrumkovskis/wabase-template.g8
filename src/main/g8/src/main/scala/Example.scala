@@ -12,7 +12,7 @@ object Example extends Loggable {
   }
 
   def invocation(implicit res: Resources) = {
-    tresql"""{demo(now())}""".unique[java.sql.Timestamp]
+    tresql"""{demo(now()) moment}""".map(_.moment).toList.head
   }
 
   def createHsqldbObjectsStatements = {

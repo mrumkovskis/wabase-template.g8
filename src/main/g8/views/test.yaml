@@ -7,7 +7,7 @@ name: test_invocation
 api: public get
 get:
   - demo(1)   # test macro compilation
-  - x = []null_table('x'){'macro invoked'}   #test parser text macro in compilation
+  - x = []null_table(){'macro invoked'}   #test parser text macro in compilation
   - y = []table('person'){count(code)}
   - z = as any sample_invocation
   - as any this
